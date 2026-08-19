@@ -194,7 +194,7 @@ def update_partial_post(post_id: int, post_data: PostUpdate, db: Annotated[Sessi
 
 
 @app.delete("/api/posts/{post_id}", status_code=status.HTTP_204_NO_CONTENT)
-def get_post(post_id: int, db: Annotated[Session, Depends(get_db)]):
+def delete_post(post_id: int, db: Annotated[Session, Depends(get_db)]):
     result = db.execute(select(models.Post).where(models.Post.id == post_id))
     post = result.scalars().first()
 
