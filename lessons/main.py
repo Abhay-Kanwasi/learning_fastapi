@@ -49,6 +49,7 @@ async def home(request: Request, db: Annotated[AsyncSession, Depends(get_db)]):
     result = await db.execute(
         select(models.Post)
         .options(selectinload(models.Post.author))
+        .order_by(models.Post.date_posted.desc())
     ) # in case of async lazy loading is not option so if we want that our template get posts author data we will load it here
     all_posts = result.scalars().all()
     return templates.TemplateResponse(
@@ -90,6 +91,7 @@ async def user_posts_page(request: Request, user_id: int, db: Annotated[AsyncSes
         select(models.Post)
         .options(selectinload(models.Post.author))
         .where(models.Post.user_id == user_id)
+        .order_by(models.Post.date_posted.desc())
     )
     user_posts = result.scalars().all()
     return templates.TemplateResponse(

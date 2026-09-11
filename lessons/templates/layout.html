@@ -303,7 +303,7 @@
       
 
       postData.user_id = 1;
-      
+
       try {
           // POST to our API as JSON
           const response = await fetch("/api/posts", {
@@ -356,5 +356,7 @@
       }
       });
     </script>
+    {% block scripts %}
+    {% endblock scripts %}
   </body>
 </html>
