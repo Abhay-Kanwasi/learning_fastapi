@@ -76,3 +76,25 @@ It's called "asynchronous" because the computer / program doesn't have to be "sy
 Instead of that, by being an "asynchronous" system, once finished, the task can wait in line a little bit (some microseconds) for the computer / program to finish whatever it went to do, and then come back to take the results and continue working with them.
 
 For "synchronous" (contrary to "asynchronous") they commonly also use the term "sequential", because the computer / program follows all the steps in sequence before switching to a different task, even if those steps involve waiting.
+
+
+## Run the code¶
+All the code blocks can be copied and used directly (they are actually tested Python files).
+
+```
+uv run fastapi dev
+```
+Using it in your editor is what really shows you the benefits of FastAPI, seeing how little code you have to write, all the type checks, autocompletion, etc
+
+## Install FastAPI¶
+The first step is to set up your project and add FastAPI.
+
+Install uv, then create a project and add FastAPI:
+
+```
+uv init awesome-project --bare
+cd awesome-project
+uv add "fastapi[standard]"
+```
+
+uv add creates the project's virtual environment in .venv, adds FastAPI to pyproject.toml, and creates uv.lock so the same package versions can be installed lat
