@@ -2,4 +2,4 @@ Q: How will you decide where to put the async keyword and where not?
 
 A: We use async when a function has I/O operations like database or API calls. For heavy computing tasks, we generally don't use async. We use await when calling an async operation, but an async function does not always need to have await.
 - Don't use syncronous db sessions in async routes
-- Don't use libraries(something like request which is build for sync you have to use some other libraries like httpx) build for sync 
+- Don't use libraries(something like request which is build for sync you have to use some other libraries like httpx) build for sync. 
