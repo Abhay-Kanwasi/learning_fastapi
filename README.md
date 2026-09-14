@@ -97,4 +97,36 @@ cd awesome-project
 uv add "fastapi[standard]"
 ```
 
-uv add creates the project's virtual environment in .venv, adds FastAPI to pyproject.toml, and creates uv.lock so the same package versions can be installed lat
+uv add creates the project's virtual environment in .venv, adds FastAPI to pyproject.toml, and creates uv.lock so the same package versions can be installed later.
+
+
+## First Steps¶
+The simplest FastAPI file could look like this:
+
+```
+from fastapi import FastAPI
+
+app = FastAPI()
+
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+```
+
+Run the live server:
+
+```
+uv run fastapi dev
+```
+
+## Check it¶
+Open your browser at http://127.0.0.1:8000.
+
+You will see the JSON response as:=
+{"message": "Hello World"}
+
+
+## Interactive API docs¶
+Now go to http://127.0.0.1:8000/docs.
+You will see the automatic interactive API documentation (provided by Swagger UI):
